@@ -1,0 +1,43 @@
+# LANGUAGE translation for cliente for the following files:
+# res://Jogo.tscn
+# res://SalvarPontuacao.tscn
+# res://Jogo.cs
+# res://SalvarPontuacao.cs
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: cliente\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: Jogo.tscn
+#: Jogo.cs
+msgid "INTERFACE_PONTOS"
+msgstr ""
+
+#: SalvarPontuacao.tscn
+msgid "INTERFACE_PONTOS_ALT"
+msgstr ""
+
+#: SalvarPontuacao.tscn
+msgid "INTERFACE_PLACEHOLDER_NOME_JOGADOR"
+msgstr ""
+
+#: SalvarPontuacao.tscn
+msgid "INTERFACE_ENVIAR"
+msgstr ""
+
+#: SalvarPontuacao.tscn
+msgid "INTERFACE_JOGAR_NOVAMENTE"
+msgstr ""
+
+#: SalvarPontuacao.cs
+msgid "INTERFACE_COLOCACAO_JOGADOR"
+msgstr ""
+
+msgid "cliente"
+msgstr ""

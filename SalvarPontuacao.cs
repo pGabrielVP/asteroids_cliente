@@ -29,7 +29,7 @@ public partial class SalvarPontuacao : Control
         set 
         { 
             _pontuacao = value;
-            _pontos.Text = $"{_pontuacao}";
+            _pontos.Text = $"{ _pontuacao }";
         } 
     }
     private void HttpClassificacaoRequestCompleted(long result, long responseCode, string[] headers, byte[] body)
@@ -74,7 +74,7 @@ public partial class SalvarPontuacao : Control
         json.Parse(body.GetStringFromUtf8());
         var response = json.GetData().AsGodotDictionary();
         response.TryGetValue("colocacao",out Godot.Variant colocacao);
-        _response.Text = "Sua colocação na tabela é: " + (int)colocacao;
+        _response.Text = $"{ Tr("INTERFACE_COLOCACAO_JOGADOR") } { (int)colocacao }";
     }
     public void OnEnviarPressed()
     {

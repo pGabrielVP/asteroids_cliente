@@ -31,7 +31,7 @@ autostart = true
 z_index = 1
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Pontos: 0"
+text = "INTERFACE_PONTOS"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1898050399]
 collision_layer = 4

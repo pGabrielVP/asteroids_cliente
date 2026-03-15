@@ -24,6 +24,7 @@ public partial class Jogo : Node2D
     {
         base._Ready();
         GD.Randomize();
+        _pontosLabel.Text = $"{ Tr("INTERFACE_PONTOS") } { _pontos }";
     }
     public void Comecar()
     {
@@ -32,7 +33,7 @@ public partial class Jogo : Node2D
             _jogando = true;
             _pontos = 0;
             _timer.Start();
-            _pontosLabel.Text = $"Pontos: {_pontos}";
+            _pontosLabel.Text = $"{ Tr("INTERFACE_PONTOS") } { _pontos }";
             EmitSignal(SignalName.Iniciar);
             GetParent().GetNode<SalvarPontuacao>("./SalvarPontuacao").QueueFree();
             var obstaculos = GetTree().GetNodesInGroup("obstaculos");
@@ -77,7 +78,7 @@ public partial class Jogo : Node2D
             default:
                 break;
         }
-        _pontosLabel.Text = $"Pontos: {_pontos}";
+        _pontosLabel.Text = $"{ Tr("INTERFACE_PONTOS") } {_pontos}";
     }
     public void OnTimerTimeout()
     {
