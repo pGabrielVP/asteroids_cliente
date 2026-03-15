@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bt7l64bk2eu7j"]
+
+[ext_resource type="Script" uid="uid://bvpjrpt1k3ngr" path="res://Obstaculo.cs" id="1_25lpp"]
+[ext_resource type="Texture2D" uid="uid://bs06ihjmso5vh" path="res://icon2.svg" id="1_naxem"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_naxem"]
+size = Vector2(126, 126)
+
+[node name="Obstaculo" type="Area2D" unique_id=442487097]
+collision_layer = 2
+script = ExtResource("1_25lpp")
+_velocidade = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=193835776]
+shape = SubResource("RectangleShape2D_naxem")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1089673803]
+texture = ExtResource("1_naxem")

@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://bty66n6je3jee"]
+
+[ext_resource type="PackedScene" uid="uid://cycu61he5lh0a" path="res://Jogador.tscn" id="1_hkt5d"]
+[ext_resource type="Script" uid="uid://drfk638c2rj5v" path="res://Jogo.cs" id="1_oaxax"]
+[ext_resource type="PackedScene" uid="uid://bt7l64bk2eu7j" path="res://Obstaculo.tscn" id="3_06tow"]
+[ext_resource type="PackedScene" uid="uid://dgv87f42m3h4s" path="res://SalvarPontuacao.tscn" id="4_n17d0"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_n17d0"]
+a = Vector2(1, 860)
+b = Vector2(0, -2)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_swkqp"]
+a = Vector2(480, -1)
+b = Vector2(-2, -1)
+
+[node name="Node2D" type="Node2D" unique_id=330106714 node_paths=PackedStringArray("_timer", "_pontosLabel")]
+script = ExtResource("1_oaxax")
+_timer = NodePath("Timer")
+_pontosLabel = NodePath("PontosDisplay")
+_obstaculo = ExtResource("3_06tow")
+_salvarPontos = ExtResource("4_n17d0")
+
+[node name="Jogador" parent="." unique_id=1725040134 instance=ExtResource("1_hkt5d")]
+position = Vector2(237, 785)
+
+[node name="Timer" type="Timer" parent="." unique_id=1132577949]
+wait_time = 2.0
+autostart = true
+
+[node name="PontosDisplay" type="Label" parent="." unique_id=106279338]
+z_index = 1
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Pontos: 0"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1898050399]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1383420478]
+shape = SubResource("SegmentShape2D_n17d0")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=2078416971]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1185028595]
+position = Vector2(480, 2)
+shape = SubResource("SegmentShape2D_n17d0")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=246102725]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=103244712]
+shape = SubResource("SegmentShape2D_swkqp")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1158079320]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1585793954]
+position = Vector2(2, 861)
+shape = SubResource("SegmentShape2D_swkqp")
+
+[connection signal="Gameover" from="." to="Jogador" method="OnGameOver"]
+[connection signal="Iniciar" from="." to="Jogador" method="OnIniciar"]
+[connection signal="timeout" from="Timer" to="." method="OnTimerTimeout"]
