@@ -29,7 +29,7 @@ public partial class SalvarPontuacao : Control
         set 
         { 
             _pontuacao = value;
-            _pontos.Text = $"{ _pontuacao }";
+            _pontos.Text = $"{Jogo.NumeroLocalizado(_pontuacao)}";
         } 
     }
     private void HttpClassificacaoRequestCompleted(long result, long responseCode, string[] headers, byte[] body)
@@ -45,17 +45,17 @@ public partial class SalvarPontuacao : Control
                 response[i].TryGetValue("jogador", out var jogador);
                 response[i].TryGetValue("pontos", out var pontos);
                 var pontuacaoLabel = new Label();
-                pontuacaoLabel.Text = $"{ pontos }";
+                pontuacaoLabel.Text = $"{Jogo.NumeroLocalizado((float)pontos)}";
                 var jogadorLabel = new Label();
-                jogadorLabel.Text = $"{ jogador }";
+                jogadorLabel.Text = $"{jogador}";
                 var classificacaoLabel = new Label();
-                classificacaoLabel.Text = $"{ (int)colocacao }";
+                classificacaoLabel.Text = $"{Jogo.NumeroLocalizado((float)colocacao)[0..^3]}";
                 var _hContainer = new HBoxContainer();
                 _hContainer.Alignment = HBoxContainer.AlignmentMode.Center;
-                _hContainer.AddChild( classificacaoLabel );
-                _hContainer.AddChild( jogadorLabel );
-                _hContainer.AddChild( pontuacaoLabel );
-                _tabelaClassificacao.AddChild( _hContainer );
+                _hContainer.AddChild(classificacaoLabel);
+                _hContainer.AddChild(jogadorLabel);
+                _hContainer.AddChild(pontuacaoLabel);
+                _tabelaClassificacao.AddChild(_hContainer);
             }
         }
     }
@@ -74,7 +74,7 @@ public partial class SalvarPontuacao : Control
         json.Parse(body.GetStringFromUtf8());
         var response = json.GetData().AsGodotDictionary();
         response.TryGetValue("colocacao",out Godot.Variant colocacao);
-        _response.Text = $"{ Tr("INTERFACE_COLOCACAO_JOGADOR") } { (int)colocacao }";
+        _response.Text = $"{Tr("INTERFACE_COLOCACAO_JOGADOR")} {(int)colocacao}";
     }
     public void OnEnviarPressed()
     {

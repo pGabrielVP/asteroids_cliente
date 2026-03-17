@@ -1,4 +1,5 @@
 using Godot;
+using System.Globalization;
 
 public partial class Jogo : Node2D
 {
@@ -18,13 +19,17 @@ public partial class Jogo : Node2D
     public delegate void IniciarEventHandler();
     
     private bool _jogando = true;
-    private float _pontos = 0;
+    private float _pontos = 0.0f;
     
+    public static string NumeroLocalizado(float numero)
+    {
+        return numero.ToString("N2", new CultureInfo(TranslationServer.GetLocale()));
+    }
     public override void _Ready()
     {
         base._Ready();
         GD.Randomize();
-        _pontosLabel.Text = $"{ Tr("INTERFACE_PONTOS") } { _pontos }";
+        _pontosLabel.Text = $"{Tr("INTERFACE_PONTOS")} {NumeroLocalizado(_pontos)}";
     }
     public void Comecar()
     {
@@ -33,7 +38,7 @@ public partial class Jogo : Node2D
             _jogando = true;
             _pontos = 0;
             _timer.Start();
-            _pontosLabel.Text = $"{ Tr("INTERFACE_PONTOS") } { _pontos }";
+            _pontosLabel.Text = $"{Tr("INTERFACE_PONTOS")} {NumeroLocalizado(_pontos)}";
             EmitSignal(SignalName.Iniciar);
             GetParent().GetNode<SalvarPontuacao>("./SalvarPontuacao").QueueFree();
             var obstaculos = GetTree().GetNodesInGroup("obstaculos");
@@ -78,7 +83,7 @@ public partial class Jogo : Node2D
             default:
                 break;
         }
-        _pontosLabel.Text = $"{ Tr("INTERFACE_PONTOS") } {_pontos}";
+        _pontosLabel.Text = $"{Tr("INTERFACE_PONTOS")} {NumeroLocalizado(_pontos)}";
     }
     public void OnTimerTimeout()
     {
