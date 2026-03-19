@@ -18,7 +18,7 @@ public partial class Jogo : Node2D
     [Signal]
     public delegate void IniciarEventHandler();
     
-    private bool _jogando = true;
+    private bool _jogando = false;
     private float _pontos = 0.0f;
     
     public static string NumeroLocalizado(float numero)
@@ -28,7 +28,7 @@ public partial class Jogo : Node2D
     public override void _Ready()
     {
         base._Ready();
-        Comecar();
+        this.Comecar();
     }
     public void Comecar()
     {
@@ -40,7 +40,7 @@ public partial class Jogo : Node2D
             _timer.Start();
             _pontosLabel.Text = $"{Tr("INTERFACE_PONTOS")} {NumeroLocalizado(_pontos)}";
             EmitSignal(SignalName.Iniciar);
-            GetParent().GetNode<SalvarPontuacao>("./SalvarPontuacao").QueueFree();
+            GetParent().GetNodeOrNull<SalvarPontuacao>("./SalvarPontuacao")?.QueueFree();
             var obstaculos = GetTree().GetNodesInGroup("obstaculos");
             foreach (var obstaculo in obstaculos)
             {
