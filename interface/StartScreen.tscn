@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://4ucs0lhbsjvs" path="res://interface/StartScreen.cs" id="1_6oyu7"]
 [ext_resource type="PackedScene" uid="uid://bty66n6je3jee" path="res://Jogo.tscn" id="2_rnp0n"]
 
-[node name="StartScreen" type="Control" unique_id=1585353688]
+[node name="StartScreen" type="Control" unique_id=1585353688 node_paths=PackedStringArray("_inicar", "_sair")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +12,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6oyu7")
 _jogo = ExtResource("2_rnp0n")
+_inicar = NodePath("Iniciar")
+_sair = NodePath("Sair")
 
 [node name="Iniciar" type="Button" parent="." unique_id=976428700]
 layout_mode = 1
