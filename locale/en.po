@@ -41,23 +41,14 @@ msgstr "Play Again"
 msgid "INTERFACE_COLOCACAO_JOGADOR"
 msgstr "Your ranking is:"
 
+#: interface/StartScreen.tscn
+msgid "INTERFACE_INICIAR_JOGO"
+msgstr "Start Game"
+
+#: interface/StartScreen.tscn
+msgid "INTERFACE_SAIR_JOGO"
+msgstr "Quit"
+
 msgid "cliente"
 msgstr "client"
 
-#~ msgid "Pontos:"
-#~ msgstr "Score:"
-
-#~ msgid "Nickname"
-#~ msgstr "Nickname"
-
-#~ msgid "Enviar"
-#~ msgstr "Submit Score"
-
-#~ msgid "Seus Pontos:"
-#~ msgstr "Final Score:"
-
-#~ msgid "0"
-#~ msgstr "0"
-
-#~ msgid "Jogar Novamente"
-#~ msgstr "Play Again"

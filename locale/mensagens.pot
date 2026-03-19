@@ -3,6 +3,8 @@
 # res://SalvarPontuacao.tscn
 # res://Jogo.cs
 # res://SalvarPontuacao.cs
+# res://interface/StartScreen.cs
+# res://interface/StartScreen.tscn
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -37,6 +39,14 @@ msgstr ""
 
 #: SalvarPontuacao.cs
 msgid "INTERFACE_COLOCACAO_JOGADOR"
+msgstr ""
+
+#: interface/StartScreen.tscn
+msgid "INTERFACE_INICIAR_JOGO"
+msgstr ""
+
+#: interface/StartScreen.tscn
+msgid "INTERFACE_SAIR_JOGO"
 msgstr ""
 
 msgid "cliente"
