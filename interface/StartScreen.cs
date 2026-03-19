@@ -1,9 +1,16 @@
 using Godot;
+using System.Runtime.InteropServices.JavaScript;
 
 public partial class StartScreen : Control
 {
     [Export]
     PackedScene _jogo;
+    [Export]
+    Button _inicar;
+    [Export]
+    Button _sair;
+    [Export]
+    VBoxContainer _containerBotoes;
     public void OnIniciarJogoPressed()
     {
         GetTree().ChangeSceneToFile(_jogo.ResourcePath);
