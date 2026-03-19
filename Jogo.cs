@@ -28,13 +28,13 @@ public partial class Jogo : Node2D
     public override void _Ready()
     {
         base._Ready();
-        GD.Randomize();
-        _pontosLabel.Text = $"{Tr("INTERFACE_PONTOS")} {NumeroLocalizado(_pontos)}";
+        Comecar();
     }
     public void Comecar()
     {
         if (!_jogando)
         {
+            GD.Randomize();
             _jogando = true;
             _pontos = 0;
             _timer.Start();
