@@ -43,12 +43,9 @@ public partial class Jogo : Node2D
             GetParent().GetNodeOrNull<SalvarPontuacao>("./SalvarPontuacao")?.QueueFree();
             var obstaculos = GetTree().GetNodesInGroup("obstaculos");
             foreach (var obstaculo in obstaculos)
-            {
                 obstaculo.QueueFree();
-            }
         }
     }
-    
     private void GameOver()
     {
         if (_jogando)
